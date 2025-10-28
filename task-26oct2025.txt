@@ -1,0 +1,988 @@
+=======================================
+Date: 26/10/2025
+=======================================
+Task-01
+=======================================
+Sahosoft-car template 
+
+Home 
+About
+Service
+Blog
+Pages
+Contact
+
+
+=======================================
+Task-02
+=======================================
+Write a Class Component and Show Company Details
+Write a Functional Component and Show Your Personal Details
+Write a Class Component and use Props
+Write a Function Component and use Props
+=======================================
+
+D:\react-tasks>npm create vite@latest react-app
+Need to install the following packages:
+create-vite@8.0.2
+Ok to proceed? (y) y
+
+> npx
+> create-vite react-app
+
+|
+o  Select a framework:
+|  React
+|
+o  Select a variant:
+|  JavaScript
+|
+o  Use rolldown-vite (Experimental)?:
+|  No
+|
+o  Install with npm and start now?
+|  Yes
+|
+o  Scaffolding project in D:\react-tasks\react-app...
+|
+o  Installing dependencies with npm...
+
+added 153 packages, and audited 154 packages in 43s
+
+32 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+|
+o  Starting dev server...
+
+> react-app@0.0.0 dev
+> vite
+
+
+  VITE v7.1.12  ready in 1230 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+
+=================================================
+Write a Class Component and Show Company Details
+=================================================
+//main.jsx
+import ReactDOM from "react-dom/client";
+import Company from "./App";
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Company />);
+
+//App.jsx
+import { Component } from "react";
+export default class Company extends Component {
+  constructor() {
+    super();
+    this.company = {
+      name: "Fujitsu Consulting India Pvt. Ltd.",
+      CEO: "Takahito Tokita San",
+      slogan: "Shaping tomorrow with you",
+      description:
+        "Fujitsu is a global leader in technology and business solutions, dedicated to driving innovation and sustainability across industries. The company focuses on creating value through digital transformation and responsible innovation.",
+      product:
+        "Digital Transformation Solutions, IT Services, and Cloud Platforms",
+      service:
+        "Consulting, AI Solutions, Managed Services, and Infrastructure Support",
+      location: "Pune, India",
+    };
+  }
+
+  render() {
+    const { name, CEO, slogan, description, product, service, location } =
+      this.company;
+
+    return (
+      <>
+        <h1>{name}</h1>
+        <h2>CEO: {CEO}</h2>
+        <p>“{slogan}”</p>
+
+        <p>{description}</p>
+
+        <div>
+          <p>
+            <span>Products:</span> {product}
+          </p>
+          <p>
+            <span>Services:</span> {service}
+          </p>
+          <p>
+            <span>Location:</span> {location}
+          </p>
+        </div>
+      </>
+    );
+  }
+}
+
+===========================================================
+2. Write a Functional Component and Show Your Personal Details
+===========================================================
+//main.jsx
+import ReactDOM from "react-dom/client";
+import PersonalDetails from "./App.jsx";
+const root=ReactDOM.createRoot(document.getElementById("root"));
+root.render(<PersonalDetails />);
+
+//App.jsx
+export default function PersonalDetails() {
+  const personal = {
+    name: "Suraj Pawar",
+    exp: "3+ years",
+    company: "Fujitsu Consulting India Pvt. Ltd.",
+    address: {
+      street: "Magarpatta City, Tower 8",
+      location: "Pune, Maharashtra",
+      pincode: "411013",
+    },
+    country: "India",
+  };
+
+  return (
+    <>
+        <h1>
+          Personal Details
+        </h1>
+
+        <p><strong>Name:</strong> {personal.name}</p>
+        <p><strong>Experience:</strong> {personal.exp}</p>
+        <p><strong>Company:</strong> {personal.company}</p>
+
+        <div>
+          <h2>Address</h2>
+          <p>{personal.address.street}</p>
+          <p>{personal.address.location}</p>
+          <p>{personal.address.pincode}</p>
+        </div>
+
+        <p><strong>Country:</strong> {personal.country}</p>
+    </>
+  );
+}
+
+============================================
+3. Write a Class Component and use Props
+============================================
+//main.jsx
+import ReactDOM from "react-dom/client";
+import Employee from "./App.jsx";
+export default function App(){
+return (
+<>
+      <Employee name="Suraj Pawar" role="Software Developer" experience="3+ years" />
+      <Employee name="Pranay Pawar" role="UI Designer" experience="2 years" />
+</>
+)}
+const root=ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App/>);
+
+//App.jsx
+import { Component } from "react";
+export default class Employee extends Component {
+  render() {
+    const { name, role, experience } = this.props;
+    return (
+      <div>
+        <h2>Name: {name}</h2>
+        <p>Role: {role}</p>
+        <p>Experience: {experience}</p>
+      </div>
+    );
+  }
+}
+
+============================================
+4. Write a Function Component and use Props
+============================================
+//main.jsx
+import ReactDOM from "react-dom/client";
+import BlogPost from "./App.jsx";
+export default function App() {
+  return (
+    <>
+      <BlogPost
+        title="Exploring React with Vite"
+        author="Suraj Pawar"
+        date="27 Oct 2025"
+        content="React with Vite offers fast builds, modern tooling, and smooth developer experience."
+      />
+    </>
+  );
+}
+const root=ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App/>)
+
+//App.jsx
+export default function BlogPost({ title, author, date, content }) {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>
+        By {author} | {date}
+      </p>
+      <p>{content}</p>
+    </div>
+  );
+}
+
+============================================
+Notes
+============================================
+Here’s a step-by-step guide to create a React app using Vite — the modern, lightning-fast build tool 🔥
+
+🧩 Step 1: Install Node.js
+
+Make sure you have Node.js (v16 or higher) installed.
+
+Check version:
+
+node -v
+npm -v
+
+
+If not installed, download from 👉 https://nodejs.org
+
+⚙️ Step 2: Create React App using Vite
+
+Run the following command in your terminal:
+
+Using npm:
+npm create vite@latest my-react-app
+
+Or using yarn:
+yarn create vite my-react-app
+
+
+Then follow the prompts:
+
+✔ Project name: … my-react-app
+✔ Select a framework: › React
+✔ Select a variant: › JavaScript / TypeScript
+
+📂 Step 3: Move into the project folder
+cd my-react-app
+
+📦 Step 4: Install dependencies
+npm install
+
+
+(or)
+
+yarn
+
+🚀 Step 5: Run the development server
+npm run dev
+
+
+You’ll see output like:
+
+  ➜  Local:   http://localhost:5173/
+
+
+Open that link in your browser 🎉
+
+🧱 Folder Structure Overview
+my-react-app/
+├── index.html
+├── package.json
+├── vite.config.js
+├── /src
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── /assets
+└── /node_modules
+
+🧠 Bonus Tips
+
+To use React Router, install:
+
+npm install react-router-dom
+
+
+To use Tailwind CSS, run:
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+Then configure tailwind.config.js.
+
+====================================
+PART 1 — Create React + TypeScript App using Vite
+
+If you haven’t created your app yet, start here:
+
+npm create vite@latest my-react-ts-app
+
+
+Then select:
+
+✔ Select a framework: › React
+✔ Select a variant: › TypeScript
+
+
+Now install dependencies and start:
+
+cd my-react-ts-app
+npm install
+npm run dev
+
+🎨 PART 2 — Install and Configure Tailwind CSS
+Step 1: Install Tailwind CSS
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+This creates two config files:
+
+tailwind.config.cjs
+postcss.config.cjs
+
+Step 2: Configure Tailwind
+
+Edit tailwind.config.cjs
+Replace content with:
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+Step 3: Add Tailwind to your CSS
+
+Open src/index.css (or create it if not exists) and add:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Step 4: Use Tailwind in Components
+
+Edit src/App.tsx:
+
+function App() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+      <h1 className="text-4xl font-bold mb-4">Hello Vite + React + TypeScript + Tailwind 🎨</h1>
+      <p className="text-lg">This setup is fast, modern, and beautiful!</p>
+    </div>
+  );
+}
+
+export default App;
+
+Step 5: Run the App
+npm run dev
+
+
+Then open the app URL (usually http://localhost:5173
+) — you’ll see your Tailwind-styled screen ✨
+
+✅ Optional Enhancements
+Feature	Command
+React Router	npm install react-router-dom
+Axios (API calls)	npm install axios
+ESLint + Prettier	npm install -D eslint prettier
+DaisyUI (Tailwind components)	npm install daisyui
+
+==================================
+PART 3 — React Router Setup
+Step 1: Install React Router
+
+Run this command inside your project folder:
+
+npm install react-router-dom
+
+Step 2: Create Folder Structure
+
+Inside your src directory, create a structure like this:
+
+src/
+├── App.tsx
+├── main.tsx
+├── pages/
+│   ├── Home.tsx
+│   ├── About.tsx
+│   └── Contact.tsx
+└── components/
+    └── Navbar.tsx
+
+Step 3: Create the Pages
+📄 src/pages/Home.tsx
+function Home() {
+  return (
+    <div className="text-center mt-10">
+      <h1 className="text-3xl font-bold text-blue-600">🏠 Home Page</h1>
+      <p className="text-gray-600 mt-2">Welcome to the Home Page of your Vite React App!</p>
+    </div>
+  );
+}
+export default Home;
+
+📄 src/pages/About.tsx
+function About() {
+  return (
+    <div className="text-center mt-10">
+      <h1 className="text-3xl font-bold text-green-600">ℹ️ About Page</h1>
+      <p className="text-gray-600 mt-2">This app is built using React, TypeScript, Tailwind, and Vite.</p>
+    </div>
+  );
+}
+export default About;
+
+📄 src/pages/Contact.tsx
+function Contact() {
+  return (
+    <div className="text-center mt-10">
+      <h1 className="text-3xl font-bold text-purple-600">📞 Contact Page</h1>
+      <p className="text-gray-600 mt-2">You can reach us anytime via email or social media.</p>
+    </div>
+  );
+}
+export default Contact;
+
+Step 4: Create a Navbar Component
+📄 src/components/Navbar.tsx
+import { Link } from "react-router-dom";
+
+function Navbar() {
+  return (
+    <nav className="bg-indigo-600 text-white p-4 flex justify-center gap-6 shadow-md">
+      <Link to="/" className="hover:text-yellow-300">Home</Link>
+      <Link to="/about" className="hover:text-yellow-300">About</Link>
+      <Link to="/contact" className="hover:text-yellow-300">Contact</Link>
+    </nav>
+  );
+}
+
+export default Navbar;
+
+Step 5: Setup Routing in App.tsx
+📄 src/App.tsx
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+Step 6: Wrap Router in main.tsx
+📄 src/main.tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+Step 7: Run the App
+npm run dev
+
+
+Then visit:
+
+🏠 http://localhost:5173/ → Home
+
+ℹ️ http://localhost:5173/about → About
+
+📞 http://localhost:5173/contact → Contact
+
+Your navigation bar now works beautifully with React Router and Tailwind! 🎉
+
+====================================
+PART 4 — Active Link Highlighting in Navbar
+Step 1: Update Navbar.tsx
+
+Replace your current Navbar.tsx code with the following:
+
+📄 src/components/Navbar.tsx
+import { NavLink } from "react-router-dom";
+
+function Navbar() {
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    isActive
+      ? "text-yellow-300 font-semibold border-b-2 border-yellow-300 pb-1"
+      : "hover:text-yellow-300 transition-colors";
+
+  return (
+    <nav className="bg-indigo-600 text-white p-4 flex justify-center gap-8 shadow-md">
+      <NavLink to="/" className={linkClass}>Home</NavLink>
+      <NavLink to="/about" className={linkClass}>About</NavLink>
+      <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+    </nav>
+  );
+}
+
+export default Navbar;
+
+🧠 Explanation
+
+NavLink is like Link, but it automatically gives you access to an isActive boolean.
+
+We use a function (linkClass) to conditionally style the active link.
+
+The active route link will have:
+
+A yellow underline (border-b-2 border-yellow-300)
+
+Bold text (font-semibold)
+
+Highlighted color (text-yellow-300)
+
+Step 2: Run and Test
+npm run dev
+
+
+Now navigate between Home, About, and Contact — the active page’s link will be highlighted beautifully ✨
+
+💡 Optional Enhancements
+
+You can make it even more interactive:
+
+Add smooth transition:
+
+transition-all duration-200
+
+
+Add hover background:
+
+hover:bg-indigo-700 px-3 py-1 rounded-md
+
+
+Example (if you want a button-like navbar):
+
+const linkClass = ({ isActive }: { isActive: boolean }) =>
+  isActive
+    ? "bg-yellow-300 text-indigo-700 px-3 py-1 rounded-md font-bold"
+    : "hover:bg-indigo-700 px-3 py-1 rounded-md transition-all";
+
+==================================================
+PART 5 — Create a 404 Page (Not Found)
+Step 1: Create a new file
+
+Create a new file in your src/pages folder:
+
+📄 src/pages/NotFound.tsx
+import { Link } from "react-router-dom";
+
+function NotFound() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
+      <h1 className="text-6xl font-bold text-red-500 mb-4">404</h1>
+      <h2 className="text-2xl font-semibold mb-2">Oops! Page not found 😢</h2>
+      <p className="text-gray-600 mb-6">
+        The page you’re looking for doesn’t exist or has been moved.
+      </p>
+      <Link
+        to="/"
+        className="bg-indigo-600 text-white px-5 py-2 rounded-md hover:bg-indigo-700 transition-colors"
+      >
+        Go Back Home
+      </Link>
+    </div>
+  );
+}
+
+export default NotFound;
+
+Step 2: Add Route in App.tsx
+
+Open src/App.tsx and update your routes like this:
+
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound"; // 👈 import new page
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} /> {/* 👈 Catch-all route */}
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+Step 3: Test It
+
+Run your app:
+
+npm run dev
+
+
+Now, visit any invalid URL — for example:
+👉 http://localhost:5173/something-wrong
+
+You’ll see your custom 404 page with a friendly message and a “Go Back Home” button 🏡
+
+🌟 Bonus Styling Ideas
+
+To make it even cooler, you can:
+
+Add a small animation (using Tailwind’s animate-bounce or Framer Motion)
+
+Include an emoji, SVG illustration, or Lottie animation
+
+Use gradients for background like:
+
+className="min-h-screen bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500"
+
+======================================================
+
+Example 1 — Employee Details Card
+
+Use Case: Display employee info dynamically.
+
+// Employee.jsx
+import { Component } from "react";
+
+export default class Employee extends Component {
+  render() {
+    const { name, role, experience } = this.props;
+    return (
+      <div className="p-4 bg-white rounded shadow-md mb-4">
+        <h2 className="text-xl font-semibold">{name}</h2>
+        <p>Role: {role}</p>
+        <p>Experience: {experience}</p>
+      </div>
+    );
+  }
+}
+
+// App.jsx
+import Employee from "./Employee";
+
+export default function App() {
+  return (
+    <div className="p-6">
+      <Employee name="Suraj Pawar" role="Software Developer" experience="3+ years" />
+      <Employee name="Aditi Sharma" role="UI Designer" experience="2 years" />
+    </div>
+  );
+}
+
+🏢 Example 2 — Company Profile Card
+
+Use Case: Pass company info through props.
+
+// CompanyProfile.jsx
+import { Component } from "react";
+
+export default class CompanyProfile extends Component {
+  render() {
+    const { companyName, ceo, location } = this.props;
+    return (
+      <div className="bg-indigo-50 p-4 rounded shadow-md mb-4">
+        <h2 className="text-2xl font-bold">{companyName}</h2>
+        <p>CEO: {ceo}</p>
+        <p>Location: {location}</p>
+      </div>
+    );
+  }
+}
+
+// App.jsx
+import CompanyProfile from "./CompanyProfile";
+
+export default function App() {
+  return (
+    <div className="p-6">
+      <CompanyProfile companyName="Fujitsu" ceo="Takahito Tokita San" location="Pune, India" />
+    </div>
+  );
+}
+
+🧍‍♂️ Example 3 — User Greeting Message
+
+Use Case: Display a welcome message using props.
+
+// Greeting.jsx
+import { Component } from "react";
+
+export default class Greeting extends Component {
+  render() {
+    const { username, time } = this.props;
+    return (
+      <h2 className="text-xl font-semibold text-green-600">
+        Hello, {username}! Good {time}! 🌞
+      </h2>
+    );
+  }
+}
+
+// App.jsx
+import Greeting from "./Greeting";
+
+export default function App() {
+  return (
+    <div className="p-6">
+      <Greeting username="Suraj" time="Morning" />
+      <Greeting username="Aditi" time="Evening" />
+    </div>
+  );
+}
+
+📦 Example 4 — Product Card
+
+Use Case: Pass product details and render them dynamically.
+
+// Product.jsx
+import { Component } from "react";
+
+export default class Product extends Component {
+  render() {
+    const { name, price, category } = this.props;
+    return (
+      <div className="border p-4 rounded-md mb-3">
+        <h3 className="font-bold text-lg">{name}</h3>
+        <p>Category: {category}</p>
+        <p>Price: ₹{price}</p>
+      </div>
+    );
+  }
+}
+
+// App.jsx
+import Product from "./Product";
+
+export default function App() {
+  return (
+    <div className="p-6">
+      <Product name="Dell Laptop" price="85000" category="Electronics" />
+      <Product name="Office Chair" price="7500" category="Furniture" />
+    </div>
+  );
+}
+
+🎓 Example 5 — Student Report Card
+
+Use Case: Use props to display academic details.
+
+// Student.jsx
+import { Component } from "react";
+
+export default class Student extends Component {
+  render() {
+    const { name, grade, marks } = this.props;
+    return (
+      <div className="bg-gray-100 p-4 rounded-md shadow-md mb-3">
+        <h3 className="text-xl font-semibold">{name}</h3>
+        <p>Grade: {grade}</p>
+        <p>Total Marks: {marks}</p>
+      </div>
+    );
+  }
+}
+
+// App.jsx
+import Student from "./Student";
+
+export default function App() {
+  return (
+    <div className="p-6">
+      <Student name="Rahul Deshmukh" grade="A+" marks="480/500" />
+      <Student name="Sneha Patil" grade="A" marks="450/500" />
+    </div>
+  );
+}
+
+=======================================================
+✅ 1. Employee Card Component
+
+Shows how props can pass employee information dynamically.
+
+function EmployeeCard({ name, position, company }) {
+  return (
+    <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "8px", margin: "10px" }}>
+      <h2>{name}</h2>
+      <p>Position: {position}</p>
+      <p>Company: {company}</p>
+    </div>
+  );
+}
+
+// Usage:
+<EmployeeCard name="Suraj Pawar" position="Frontend Developer" company="Fujitsu Consulting" />
+
+✅ 2. Product Details Component
+
+Demonstrates props for e-commerce product data.
+
+function ProductDetails({ name, price, category }) {
+  return (
+    <div style={{ background: "#f9f9f9", padding: "10px", borderRadius: "10px" }}>
+      <h3>{name}</h3>
+      <p>Category: {category}</p>
+      <p>Price: ₹{price}</p>
+    </div>
+  );
+}
+
+// Usage:
+<ProductDetails name="Wireless Mouse" price={899} category="Electronics" />
+
+✅ 3. Weather Info Component
+
+Props used for showing weather data dynamically.
+
+function WeatherInfo({ city, temperature, condition }) {
+  return (
+    <div style={{ textAlign: "center", margin: "20px" }}>
+      <h2>Weather in {city}</h2>
+      <p>Temperature: {temperature}°C</p>
+      <p>Condition: {condition}</p>
+    </div>
+  );
+}
+
+// Usage:
+<WeatherInfo city="Pune" temperature={28} condition="Sunny" />
+
+✅ 4. Student Report Component
+
+Shows how props can represent nested or structured data.
+
+function StudentReport({ name, grade, subjects }) {
+  return (
+    <div style={{ border: "2px solid #4caf50", padding: "15px", borderRadius: "10px" }}>
+      <h3>Student: {name}</h3>
+      <p>Grade: {grade}</p>
+      <ul>
+        {subjects.map((sub, index) => (
+          <li key={index}>{sub}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// Usage:
+<StudentReport name="Aarav Patil" grade="A+" subjects={["Math", "Science", "English"]} />
+
+✅ 5. Blog Post Card Component
+
+Shows how to pass content data as props for a reusable component.
+
+function BlogPost({ title, author, date, content }) {
+  return (
+    <article style={{ background: "#fff3e0", padding: "20px", borderRadius: "10px" }}>
+      <h2>{title}</h2>
+      <p>By {author} | {date}</p>
+      <p>{content}</p>
+    </article>
+  );
+}
+
+// Usage:
+<BlogPost
+  title="Exploring React with Vite"
+  author="Suraj Pawar"
+  date="27 Oct 2025"
+  content="React with Vite offers fast builds, modern tooling, and smooth developer experience."
+/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
